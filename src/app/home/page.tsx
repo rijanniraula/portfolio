@@ -465,7 +465,7 @@ const HomePage = () => {
           <div className=" flex justify-center py-8 ">
             <div className="  w-[87%] flex justify-between items-center gap-16 ">
               <div>
-                <form className="flex flex-col gap-6 " method="POST">
+                <form className="flex flex-col gap-6 " method="POST" action="/">
                   <input
                     type="text"
                     placeholder="Enter your Name"
