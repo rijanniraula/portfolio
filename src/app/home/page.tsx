@@ -8,12 +8,16 @@ const HomePage = () => {
       <div className="fixed left-0 w-[100%]">
         <div className="header-nav py-4  backdrop-blur-2xl ">
           <div className="w-[87%] flex items-end justify-between m-auto">
-            <div className="font-extrabold text-2xl text-[#00D8FF]">Rijan</div>
+            <Link href="/">
+              <div className="font-extrabold text-2xl text-[#00D8FF]">
+                Rijan
+              </div>
+            </Link>
             <div className="flex gap-12">
-              <div>My Skills</div>
+              {/* <div>My Skills</div>
               <div>My Projects</div>
               <div>Experience</div>
-              <div>Contact Me</div>
+              <div>Contact Me</div> */}
             </div>
           </div>
         </div>
@@ -31,7 +35,7 @@ const HomePage = () => {
             Nepal and i’m very passionate and dedicated to my work
           </div>
           <div>
-            <Link href="/home">
+            <Link href="/">
               <button className="cursor-pointer hover:bg-[#32D0F4] hover:text-[#e9e9e9] py-2 px-5 bg-[#e9e9e9] rounded-3xl text-black font-bold w-fit">
                 Contact Me
               </button>
