@@ -1,4 +1,9 @@
+import HomePage from "./home/page";
 const home = () => {
-  return <div>Currently under maintenance</div>;
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
 };
 export default home;
