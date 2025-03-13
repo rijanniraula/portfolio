@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { RefObject, useRef } from "react";
+// import Link from "next/link";
+// import { RefObject, useRef } from "react";
 import SkillsCard from "../components/skillsCard";
 import ProjectsCard from "../components/projectsCard";
 
