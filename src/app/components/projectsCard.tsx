@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+// import { GetStaticProps } from "next";
 import Image from "next/image";
 interface projectcardprop {
   img: string;
