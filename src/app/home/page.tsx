@@ -1,33 +1,71 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { RefObject, useRef } from "react";
+import SkillsCard from "../components/skillsCard";
+import ProjectsCard from "../components/projectsCard";
 
 const HomePage = () => {
+  const contactRef = useRef<HTMLDivElement>(null!);
+  const heroRef = useRef<HTMLDivElement>(null!);
+  const skillsRef = useRef<HTMLDivElement>(null!);
+  const projectsRef = useRef<HTMLDivElement>(null!);
+  const experienceRef = useRef<HTMLDivElement>(null!);
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="main-container m-auto flex flex-col ">
-      {/* nav bar */}
       <div className="fixed left-0 w-[100%]">
-        <div className="header-nav py-4  backdrop-blur-2xl ">
-          <div className="w-[87%] flex items-end justify-between m-auto">
-            <Link href="/">
-              <div className="font-extrabold text-2xl text-[#00D8FF]">
-                Rijan
-              </div>
-            </Link>
+        <nav className="header-nav py-4  backdrop-blur-2xl ">
+          <div className="w-[90%] flex items-end justify-between m-auto">
+            <a
+              onClick={() => scrollToSection(heroRef)}
+              className="font-extrabold text-2xl text-highlight cursor-pointer"
+            >
+              Rijan
+            </a>
+
             <div className="flex gap-12">
-              {/* <div>My Skills</div>
-              <div>My Projects</div>
-              <div>Experience</div>
-              <div>Contact Me</div> */}
+              <a
+                onClick={() => scrollToSection(skillsRef)}
+                className="cursor-pointer"
+              >
+                My Skills
+              </a>
+              <a
+                onClick={() => scrollToSection(projectsRef)}
+                className="cursor-pointer"
+              >
+                My Projects
+              </a>
+              <a
+                onClick={() => scrollToSection(experienceRef)}
+                className="cursor-pointer"
+              >
+                Experience
+              </a>
+              <a
+                onClick={() => scrollToSection(contactRef)}
+                className="cursor-pointer"
+              >
+                Contact Me
+              </a>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
 
       {/* hero */}
-      <div className="hero-section flex items-center justify-evenly  py-32  ">
+      <div
+        ref={heroRef}
+        className="hero-section flex items-center justify-evenly  py-32  w-[85%] m-auto"
+      >
         <div className="hero-left flex flex-col gap-4">
           <div className="text-4xl">Hi, I’m Rijan Niraula</div>
-          <div className="text-[#00D8FF]">
+          <div className="text-highlight">
             Frontend Developer | Graphics Designer
           </div>
           <div>
@@ -35,11 +73,14 @@ const HomePage = () => {
             Nepal and i’m very passionate and dedicated to my work
           </div>
           <div>
-            <Link href="/">
-              <button className="cursor-pointer hover:bg-[#32D0F4] hover:text-[#e9e9e9] py-2 px-5 bg-[#e9e9e9] rounded-3xl text-black font-bold w-fit">
+            <div>
+              <button
+                onClick={() => scrollToSection(contactRef)}
+                className="cursor-pointer hover:bg-[#32D0F4] hover:text-[#e9e9e9] py-2 px-5 bg-[#e9e9e9] rounded-3xl text-black font-bold w-fit"
+              >
                 Contact Me
               </button>
-            </Link>
+            </div>
           </div>
         </div>
         <div className="hero-right">
@@ -56,398 +97,102 @@ const HomePage = () => {
       </div>
 
       {/* skills */}
-      <div className="skills-container py-8 bg-[#1f1f1f] flex flex-col items-center w-[100%]">
-        <div className="text-center text-[#00D8FF] text-3xl">Skills</div>
+      <div
+        ref={skillsRef}
+        className="skills-container py-8 bg-[#1f1f1f] flex flex-col items-center w-[100%]"
+      >
+        <div className="text-center text-highlight text-3xl">Skills</div>
         <div className="skills-cards flex flex-wrap  justify-around py-10 w-[87%] gap-8">
-          {/* html */}
-          <div className="px-14 py-8 bg-[#d9d9d9] rounded-2xl  ">
-            <svg
-              width="60"
-              height="68"
-              viewBox="0 0 60 68"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5.46045 61.2026L0 0H60L54.5336 61.1933L29.9634 68L5.46045 61.2026Z"
-                fill="#E44D26"
-              />
-              <path d="M30 63L50.2383 57.4794L55 5H30V63Z" fill="#F16529" />
-              <path
-                d="M30 28.0117H19.9734L19.2808 20.4164H30V13H11L11.1817 14.9896L13.0436 35.4286H30V28.0117ZM30 47.2737L29.9664 47.2829L21.5281 45.0518L20.9892 39.1374H13.3822L14.4437 50.7825L29.9653 55L30 54.9908V47.2737Z"
-                fill="#EBEBEB"
-              />
-              <path
-                d="M30 28.0129V35.4304H39.3394L38.4593 45.05L30 47.2828V55L45.5491 50.7854L45.6631 49.5324L47.4454 30.0048L47.63 28.0129H45.5865H30ZM30 13V20.417H48.3205L48.4726 18.7505L48.8187 14.9898L49 13H30Z"
-                fill="white"
-              />
-            </svg>
-
-            <div className="text-center font-bold text-black pt-7">HTML</div>
-          </div>
-
-          {/* css */}
-          <div className="px-14 py-8 bg-[#d9d9d9] rounded-2xl  ">
-            <svg
-              width="72"
-              height="80"
-              viewBox="0 0 72 80"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d_0_1)">
-                <path
-                  d="M11.4602 62.2024L6 1.00037H66L60.5344 62.1931L35.9636 69.0004L11.4602 62.2024Z"
-                  fill="#1572B6"
-                />
-              </g>
-              <path
-                d="M36 64.0004L56.2386 58.4798L61 6.00037H36V64.0004Z"
-                fill="#33A9DC"
-              />
-              <path
-                d="M36 28.3946H46.0265L46.7189 20.6062H36V13.0004H55L54.8181 15.0411L52.9555 36.0004H36V28.3946Z"
-                fill="white"
-              />
-              <path
-                d="M36 47.207L35.9678 47.2167L27.8425 44.9671L27.3229 39.0004H20L21.0218 50.7472L35.9668 55.0004L36 54.9906V47.207Z"
-                fill="#EBEBEB"
-              />
-              <path
-                d="M45.3827 35.0004L44.4682 44.9917L36 47.2379V55.0004L51.565 50.7615L51.6792 49.5009L53 35.0004H45.3827Z"
-                fill="white"
-              />
-              <path
-                d="M36 13.0004V20.6058H17.6789L17.527 18.8968L17.1815 15.041L17 13.0004H36ZM35.9742 28.3949V36.0004H27.6336L27.4816 34.2913L27.1356 30.4355L26.9546 28.3949H35.9742Z"
-                fill="#EBEBEB"
-              />
-              <defs>
-                <filter
-                  id="filter0_d_0_1"
-                  x="0"
-                  y="0.000366211"
-                  width="72"
-                  height="80"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset dy="5" />
-                  <feGaussianBlur stdDeviation="3" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_0_1"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_0_1"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-
-            <div className="text-center font-bold text-black pt-4">CSS</div>
-          </div>
-
-          {/* js */}
-          <div className="px-14 py-8 bg-[#d9d9d9] rounded-2xl  ">
-            <svg
-              width="80"
-              height="80"
-              viewBox="0 0 80 80"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d_0_1)">
-                <path d="M6 1H74V69H6V1Z" fill="#F5DE19" />
-              </g>
-              <path
-                d="M51.8861 54.381C52.4687 55.5618 53.3726 56.5543 54.494 57.2444C55.6154 57.9345 56.9088 58.2942 58.2255 58.2822C60.8831 58.2822 62.5826 56.9533 62.5826 55.1124C62.5826 52.918 60.8368 52.1329 57.9109 50.8528L56.3066 50.1652C51.6739 48.1926 48.6018 45.7227 48.6018 40.4999C48.6018 35.6892 52.2591 32.0245 57.9963 32.0245C59.8534 31.8907 61.7089 32.3065 63.3313 33.2201C64.9538 34.1337 66.2715 35.5046 67.1201 37.1619L62.1047 40.3683C61.7777 39.5466 61.2089 38.8436 60.4734 38.3524C59.738 37.8613 58.8708 37.6051 57.9865 37.6179C57.6007 37.5793 57.211 37.6214 56.8424 37.7417C56.4738 37.862 56.1343 38.0578 55.8455 38.3165C55.5567 38.5753 55.325 38.8913 55.1651 39.2446C55.0052 39.5978 54.9206 39.9805 54.9168 40.3683C54.9168 42.2921 56.1091 43.0723 58.8618 44.2695L60.4662 44.9571C65.9181 47.2954 69 49.6775 69 55.0344C69 60.8107 64.4625 63.9755 58.3693 63.9755C55.9955 64.1253 53.6289 63.5856 51.5547 62.4215C49.4804 61.2574 47.7869 59.5185 46.678 57.4142L51.8861 54.381ZM29.2227 54.9369C30.2297 56.7241 31.1465 58.2359 33.3506 58.2359C35.4572 58.2359 36.7885 57.4117 36.7885 54.2054V32.3903H43.2035V54.2907C43.2035 60.9326 39.3023 63.956 33.6237 63.956C31.6164 64.0657 29.6229 63.5655 27.9053 62.5211C26.1876 61.4766 24.8262 59.9369 24 58.1042L29.2227 54.9369Z"
-                fill="black"
-              />
-              <defs>
-                <filter
-                  id="filter0_d_0_1"
-                  x="0"
-                  y="0"
-                  width="80"
-                  height="80"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset dy="5" />
-                  <feGaussianBlur stdDeviation="3" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_0_1"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_0_1"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-
-            <div className="text-center font-bold text-black pt-4">
-              JavaScript
-            </div>
-          </div>
-
-          {/* tailwind */}
-          <div className="px-14 py-8 bg-[#d9d9d9] rounded-2xl  ">
-            <svg
-              width="82"
-              height="82"
-              viewBox="0 0 82 82"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d_15_45)">
-                <path
-                  d="M59.5938 1H22.4062C13.3453 1 6 8.34533 6 17.4062V54.5938C6 63.6547 13.3453 71 22.4062 71H59.5938C68.6547 71 76 63.6547 76 54.5938V17.4062C76 8.34533 68.6547 1 59.5938 1Z"
-                  fill="#242938"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M28.6953 31.0781C30.3359 24.5156 34.4375 21.2344 41 21.2344C50.8438 21.2344 52.0742 28.6172 56.9961 29.8477C60.2773 30.6683 63.1484 29.4379 65.6094 26.1562C63.9688 32.7188 59.8672 36 53.3047 36C43.4609 36 42.2305 28.6172 37.3086 27.3867C34.0273 26.5664 31.1562 27.7969 28.6953 31.0781ZM16.3906 45.8438C18.0312 39.2812 22.1328 36 28.6953 36C38.5391 36 39.7695 43.3828 44.6914 44.6133C47.9727 45.434 50.8438 44.2035 53.3047 40.9219C51.6641 47.4844 47.5625 50.7656 41 50.7656C31.1562 50.7656 29.9258 43.3828 25.0039 42.1523C21.7227 41.3317 18.8516 42.5621 16.3906 45.8438Z"
-                  fill="url(#paint0_linear_15_45)"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_15_45"
-                  x="0"
-                  y="0"
-                  width="82"
-                  height="82"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset dy="5" />
-                  <feGaussianBlur stdDeviation="3" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_15_45"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_15_45"
-                    result="shape"
-                  />
-                </filter>
-                <linearGradient
-                  id="paint0_linear_15_45"
-                  x1="29.6523"
-                  y1="21.2344"
-                  x2="50.707"
-                  y2="51.7227"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="#32B1C1" />
-                  <stop offset="1" stop-color="#14C6B7" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            <div className="text-center font-bold text-black pt-4">
-              Tailwind
-            </div>
-          </div>
-
-          {/* React */}
-          <div className="px-14 py-8 bg-[#d9d9d9] rounded-2xl  ">
-            <svg
-              width="70"
-              height="70"
-              viewBox="0 0 70 70"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M53.5938 0H16.4062C7.34533 0 0 7.34533 0 16.4062V53.5938C0 62.6547 7.34533 70 16.4062 70H53.5938C62.6547 70 70 62.6547 70 53.5938V16.4062C70 7.34533 62.6547 0 53.5938 0Z"
-                fill="#242938"
-              />
-              <path
-                d="M35.0003 40.1819C37.8178 40.1819 40.1015 37.8978 40.1015 35.0806C40.1015 32.2634 37.8178 29.9794 35.0003 29.9794C32.1828 29.9794 29.899 32.2634 29.899 35.0806C29.899 37.8978 32.1831 40.1819 35.0003 40.1819Z"
-                fill="#00D8FF"
-              />
-              <path
-                d="M35.0005 24.7086C41.8496 24.7086 48.2122 25.6914 53.0097 27.3432C58.7899 29.333 62.3438 32.3493 62.3438 35.0806C62.3438 37.9269 58.5774 41.1313 52.3701 43.1878C47.6774 44.7426 41.5021 45.5541 35.0005 45.5541C28.3347 45.5541 22.0224 44.7923 17.2766 43.1706C11.2725 41.1184 7.65625 37.8727 7.65625 35.0806C7.65625 32.3714 11.0496 29.3784 16.7486 27.3916C21.5638 25.7127 28.0834 24.7086 34.9995 24.7086H35.0005Z"
-                stroke="#00D8FF"
-                stroke-width="0.556938"
-              />
-              <path
-                d="M25.9714 29.9244C29.3932 23.9914 33.4228 18.9705 37.2504 15.6401C41.8616 11.6268 46.2503 10.0551 48.6161 11.4193C51.0817 12.8412 51.9761 17.7051 50.6568 24.1095C49.6601 28.9513 47.2773 34.706 44.0292 40.3383C40.699 46.1128 36.8859 51.2003 33.1106 54.5002C28.3333 58.6761 23.7147 60.1874 21.2961 58.7926C18.9492 57.4402 18.0518 53.0048 19.1778 47.0753C20.1291 42.0651 22.5165 35.9157 25.9703 29.9244H25.9714Z"
-                stroke="#00D8FF"
-                stroke-width="0.556938"
-              />
-              <path
-                d="M25.9798 40.3534C22.5484 34.4269 20.2122 28.4271 19.2371 23.4478C18.0632 17.4484 18.8931 12.8614 21.257 11.4932C23.7204 10.0669 28.3806 11.7212 33.2702 16.0628C36.9671 19.3452 40.7632 24.2827 44.0206 29.9094C47.3604 35.6784 49.8635 41.5232 50.8372 46.4417C52.0693 52.6663 51.0721 57.4222 48.6557 58.8208C46.3112 60.1782 42.0207 58.7412 37.4458 54.8043C33.5805 51.4782 29.4451 46.3389 25.9798 40.3534Z"
-                stroke="#00D8FF"
-                stroke-width="0.556938"
-              />
-            </svg>
-
-            <div className="text-center font-bold text-black pt-4">
-              React.js
-            </div>
-          </div>
-
-          {/* Next */}
-          <div className="px-14 py-8 bg-[#d9d9d9] rounded-2xl  ">
-            <svg
-              width="70"
-              height="70"
-              viewBox="0 0 70 70"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70Z"
-                fill="black"
-              />
-              <path
-                d="M58.1421 61.2577L26.8885 21H21V48.9882H25.7108V26.9828L54.4441 64.1063C55.7388 63.2401 56.9742 62.2884 58.1421 61.2577Z"
-                fill="url(#paint0_linear_0_1)"
-              />
-              <path
-                d="M44.7223 21H49.3891V49H44.7223V21Z"
-                fill="url(#paint1_linear_0_1)"
-              />
-              <defs>
-                <linearGradient
-                  id="paint0_linear_0_1"
-                  x1="2087.33"
-                  y1="2451.55"
-                  x2="3327.65"
-                  y2="3988.88"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="white" />
-                  <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-                <linearGradient
-                  id="paint1_linear_0_1"
-                  x1="278.06"
-                  y1="21"
-                  x2="270.164"
-                  y2="2077.23"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="white" />
-                  <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            <div className="text-center font-bold text-black pt-4">Next.js</div>
-          </div>
+          <SkillsCard img="html-icon.svg" name="HTML" />
+          <SkillsCard img="css-icon.svg" name="CSS" />
+          <SkillsCard img="js-icon.svg" name="JavaScript" />
+          <SkillsCard img="tailwind-css-icon.svg" name="Tailwind" />
+          <SkillsCard img="react-js-icon.svg" name="React.Js" />
+          <SkillsCard img="nextjs-icon.svg" name="Next.Js" />
         </div>
       </div>
 
       {/* Projects */}
-      <div className="projects-container py-8  flex flex-col items-center w-[100%] ">
-        <div className="text-center text-[#00D8FF] text-3xl">Projects</div>
+      <div
+        ref={projectsRef}
+        className="projects-container py-8  flex flex-col items-center w-[100%] "
+      >
+        <div className="text-center text-highlight text-3xl">Projects</div>
         <div className="project-cards flex flex-wrap justify-around py-10 w-[87%] gap-8">
-          <div className="bg-[#e9e9e9] h-[450px] w-[355px] rounded-2xl p-2 flex flex-col ">
-            <Image
-              src="/image.png"
-              alt="Rijan Niraula"
-              width={350}
-              height={300}
-              className="rounded-[6px] p-3 "
-            />
-            <div className="text-black p-3 font-bold text-2xl">MyMovieList</div>
-            <div className="text-black p-3">
-              Web-based movie rating and recommendation platform using React.js
-              and Node.js
-            </div>
-          </div>
-          {/* <div className="bg-[#e9e9e9] h-[450px] w-[355px] rounded-2xl p-2 flex flex-col">
-            Project 2
-          </div>
-          <div className="bg-[#e9e9e9] h-[450px] w-[355px] rounded-2xl p-2">
-            Project 1
-          </div> */}
+          <ProjectsCard
+            img="image.png"
+            title="MyMovieList"
+            description="Web-based movie rating and recommendation platform using React.js and Node.js"
+          />
         </div>
       </div>
 
       {/* experience */}
-      <div className="experience-container bg-[#1f1f1f] py-8 flex items-center justify-center">
+      <div
+        ref={experienceRef}
+        className="experience-container bg-[#1f1f1f] py-8 flex items-center justify-center"
+      >
         <div className="w-[87%] flex flex-col justify-center">
-          <div className="text-center text-[#00D8FF] text-3xl">Experience</div>
+          <div className="text-center text-highlight text-3xl">Experience</div>
           <div className=" flex flex-wrap justify-between">
             <div className="exp-left">
               <div className="text-4xl font-bold py-4">Education</div>
               <div className="flex">
-                <div>1.  </div>
+                <div className="border-2 mr-3"></div>
                 <div>
-                  <div className="font-bold">
-                    Bachelors in Science of Computer Science and Information
-                    Technology
-                  </div>
-                  <div className="font-bold">
-                    Birat Kshitiz College affiliated to Tribhuvan University
-                  </div>
-                  <div>Biratnagar, Morang, Nepal</div>
-                  <div>[ 2020 - Present ]</div>
+                  <ul className="list-disc ml-1 p-2">
+                    <li className="pb-8">
+                      <div className="font-bold">
+                        Bachelors in Science of Computer Science and Information
+                        Technology
+                      </div>
+                      <div className="font-bold">
+                        Birat Kshitiz College affiliated to Tribhuvan University
+                      </div>
+                      <div>Biratnagar, Morang, Nepal</div>
+                      <div>[ 2020 - Running]</div>
+                    </li>
+                    <li className="pb-8">
+                      <div className="font-bold">+2 Computer Science</div>
+                      <div className="font-bold">
+                        Shiksha Deep Boarding School
+                      </div>
+                      <div>Biratnagar, Morang, Nepal</div>
+                      <div>[ 2018 - 2020 ]</div>
+                      {/* <div>3.29 GPA</div> */}
+                    </li>
+                    <li className="pb-8">
+                      <div className="font-bold">School Level</div>
+                      <div className="font-bold">Modern Era English School</div>
+                      <div>Biratnagar, Morang, Nepal</div>
+                      {/* <div>3.90 GPA</div> */}
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div className="exp-right">
               <div className="text-4xl font-bold py-4">Experience</div>
               <div className="flex">
-                <div>1. </div>
-                <div className="font-bold">
-                  <div>Graphics Designer (Remote)</div>
-                  <div>Pinnacle Sprach Akademie</div>
-                  <div> Putalisadak, Kathmandu, Nepal</div>
-                </div>
+                <div className="border-2 mr-3"></div>
+                <ul className="list-disc ml-1 p-2">
+                  <li className="pb-4">
+                    <div className="font-bold">
+                      <div>Graphics Designer (Remote)</div>
+                      <div>Pinnacle Sprach Akademie</div>
+                      <div> Putalisadak, Kathmandu, Nepal</div>
+                    </div>
+                    <div>[ 2022 - Present ]</div>
+                  </li>
+                  <li className="pb-4">
+                    <div className="font-bold">
+                      <div>Secondary Level Computer Teacher</div>
+                      <div>Modern Era English School</div>
+                      <div>Biratnagar, Nepal</div>
+                    </div>
+                    <div>[ 2023 - Present ]</div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -455,16 +200,16 @@ const HomePage = () => {
       </div>
 
       {/* Contact Me */}
-      <div className="contact-container py-8">
+      <div ref={contactRef} className="contact-container py-8">
         <div>
           <div className=" flex flex-col justify-center">
-            <div className="text-center text-[#00D8FF] text-3xl">
+            <div className="text-center text-highlight text-3xl">
               Contact Me
             </div>
           </div>
           <div className=" flex justify-center py-8 ">
             <div className="  w-[87%] flex justify-between items-center gap-16 ">
-              <div>
+              {/* <div>
                 <form className="flex flex-col gap-6 " method="POST" action="/">
                   <input
                     type="text"
@@ -473,7 +218,7 @@ const HomePage = () => {
                     className="bg-[#D9D9D9] rounded-[8px] text-black p-3 w-[450px]"
                     required
                   />
-                  {/* <br /> */}
+
                   <input
                     type="email"
                     placeholder="Enter your Email"
@@ -481,14 +226,12 @@ const HomePage = () => {
                     className="bg-[#D9D9D9] rounded-[8px] text-black p-3 "
                     required
                   />
-                  {/* <br /> */}
                   <input
                     type="text"
                     placeholder="Enter your Mobile No. (Optional)"
                     name="mobile"
                     className="bg-[#D9D9D9] rounded-[8px] text-black p-3 "
                   />
-                  {/* <br /> */}
                   <textarea
                     placeholder="Enter your Message"
                     name="message"
@@ -501,14 +244,13 @@ const HomePage = () => {
                   />
                 </form>
               </div>
-              {/* <div className="border-1 h-[100%]"></div> */}
+              <div className="border-1 h-[100%]"></div> */}
               <div>
                 <div className="">
                   Feel free to get in touch with me. I am open to discussing new
                   projects and opportunities to be part of your vision
                 </div>
 
-                {/* email */}
                 <div className=" p-4 flex  gap-4 items-center">
                   <svg
                     width="54"
