@@ -35,6 +35,7 @@ const HomePage = () => {
       });
 
       const data = await res.json();
+      console.log(data);
       if (res.ok) {
         setStatus("Message Sent Successfully!");
       } else {
