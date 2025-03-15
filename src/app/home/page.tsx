@@ -292,81 +292,100 @@ const HomePage = () => {
                   projects and opportunities to be part of your vision
                 </div> */}
 
-                <div className=" p-4 flex  gap-4 items-center">
-                  <Image
-                    src="gmail-icon.svg"
-                    alt={""}
-                    height={10}
-                    width={50}
-                    className=""
-                  />
-                  <div>
-                    <div className="font-bold">Email Me</div>
-                    <div>rijann38@gmail.com</div>
+                <a href="mailto:rijann38@gmail.com" target="_blank">
+                  <div className=" p-4 flex  gap-4 items-center">
+                    <Image
+                      src="/gmail-icon.svg"
+                      alt={""}
+                      height={10}
+                      width={50}
+                      className=""
+                    />
+                    <div>
+                      <div className="font-bold">Email Me</div>
+                      <div>rijann38@gmail.com</div>
+                    </div>
                   </div>
-                </div>
+                </a>
 
                 {/* linkedin */}
-                <div className=" p-4 flex  gap-4 items-center">
-                  <Image
-                    src="linkedin-icon.svg"
-                    alt={""}
-                    height={10}
-                    width={50}
-                    className=""
-                  />
-                  <div>
-                    <div className="font-bold">Find me in LinkedIn</div>
-                    <div>in/rijan-niraula</div>
+                <a
+                  href="https://www.linkedin.com/in/rijan-niraula"
+                  target="_blank"
+                >
+                  <div className=" p-4 flex  gap-4 items-center">
+                    <Image
+                      src="linkedin-icon.svg"
+                      alt={""}
+                      height={10}
+                      width={50}
+                      className=""
+                    />
+                    <div>
+                      <div className="font-bold">Find me in LinkedIn</div>
+                      <div>in/rijan-niraula</div>
+                    </div>
                   </div>
-                </div>
+                </a>
 
                 {/* whatsapp */}
-                <div className=" p-4 flex  gap-4 items-center">
-                  <Image
-                    src="whatsapp-icon.svg"
-                    alt={""}
-                    height={10}
-                    width={50}
-                    className=""
-                  />
-                  <div>
-                    <div className="font-bold">Call me</div>
-                    <div>+9779863018630</div>
+                <a href="https://wa.me/+9779863018630" target="_blank">
+                  <div className=" p-4 flex  gap-4 items-center">
+                    <Image
+                      src="whatsapp-icon.svg"
+                      alt={""}
+                      height={10}
+                      width={50}
+                      className=""
+                    />
+                    <div>
+                      <div className="font-bold">Call me</div>
+                      <div>+9779863018630</div>
+                    </div>
                   </div>
-                </div>
+                </a>
 
                 {/* social media */}
                 <div className="p-4">
                   <div className=" font-bold">Social Media</div>
                   <div className="flex pt-2 gap-4">
-                    <div className="flex gap-4 items-center">
-                      <Image
-                        src="facebook-icon.svg"
-                        alt={""}
-                        height={10}
-                        width={50}
-                        className=""
-                      />
-                      <div>
-                        <div className="font-bold">Facebook</div>
-                        <div>/rijanniraula8</div>
+                    <a
+                      href="https://www.facebook.com/rijanniraula8"
+                      target="_blank"
+                    >
+                      <div className="flex gap-4 items-center">
+                        <Image
+                          src="facebook-icon.svg"
+                          alt={""}
+                          height={10}
+                          width={50}
+                          className=""
+                        />
+                        <div>
+                          <div className="font-bold">Facebook</div>
+                          <div>/rijanniraula8</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                      <Image
-                        src="instagram-icon.svg"
-                        alt={""}
-                        height={10}
-                        width={50}
-                        className=""
-                      />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/rijanstagram"
+                      target="_blank"
+                    >
+                      <div className="flex gap-4 items-center">
+                        <Image
+                          src="instagram-icon.svg"
+                          alt={""}
+                          height={10}
+                          width={50}
+                          className=""
+                        />
 
-                      <div>
-                        <div className="font-bold">Instagram</div>
-                        <div>/rijanstagram</div>
+                        <div>
+                          <div className="font-bold">Instagram</div>
+                          <div>/rijanstagram</div>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
